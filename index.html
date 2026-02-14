@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 博客每日精选 | Daily Digest</title>
+    <meta name="description" content="来自 Karpathy 推荐的 92 个顶级技术博客，AI 精选每日科技资讯">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>🍄 AI 博客每日精选</h1>
+            <p class="subtitle">来自 Karpathy 推荐的 92 个顶级技术博客，AI 智能筛选</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="loading">
+            <div class="spinner"></div>
+            <p>加载今日精选中...</p>
+        </div>
+        <div id="content"></div>
+        <div id="error" style="display: none;">
+            <p>❌ 加载失败，请稍后再试</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>基于 <a href="https://refactoringenglish.com/tools/hn-popularity/" target="_blank">Hacker News Popularity Contest 2025</a> RSS 源列表</p>
+            <p>由 <a href="https://github.com/0xEmberZz" target="_blank">@EmberZz</a> 维护 | Powered by OpenClaw</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
