@@ -12,17 +12,24 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Reading progress bar -->
+    <div id="progress-bar"></div>
+
     <nav>
         <div class="nav-inner">
             <a href="/" class="logo">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
                 <span>Daily Digest</span>
             </a>
             <div class="nav-actions">
-                <a href="https://github.com/0xEmberZz/daily-digest" target="_blank" rel="noopener" class="nav-link" aria-label="GitHub">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                <span id="reading-time" class="reading-time"></span>
+                <button id="toc-toggle" class="nav-btn" aria-label="Table of contents">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>
+                </button>
+                <a href="https://github.com/0xEmberZz/daily-digest" target="_blank" rel="noopener" class="nav-btn" aria-label="GitHub">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 </a>
-                <button id="theme-toggle" aria-label="Toggle theme">
+                <button id="theme-toggle" class="nav-btn" aria-label="Toggle theme">
                     <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                     <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 </button>
@@ -30,24 +37,48 @@
         </div>
     </nav>
 
-    <main>
-        <div id="loading">
-            <div class="loading-dots">
-                <span></span><span></span><span></span>
+    <div class="layout">
+        <!-- Table of Contents sidebar -->
+        <aside id="toc" class="toc">
+            <div class="toc-inner">
+                <div class="toc-header">
+                    <span class="toc-title">Contents</span>
+                    <button id="toc-close" class="toc-close" aria-label="Close">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </button>
+                </div>
+                <nav id="toc-nav" class="toc-nav" aria-label="Table of contents">
+                    <div class="toc-indicator"></div>
+                </nav>
             </div>
-            <p>Loading today's digest...</p>
-        </div>
-        <article id="content"></article>
-        <div id="error" style="display:none">
-            <p>Failed to load. Please refresh.</p>
-        </div>
-    </main>
+        </aside>
+
+        <!-- Backdrop for mobile TOC -->
+        <div id="toc-backdrop" class="toc-backdrop"></div>
+
+        <main>
+            <div id="loading">
+                <div class="loading-dots"><span></span><span></span><span></span></div>
+                <p>Loading today's digest...</p>
+            </div>
+            <article id="content"></article>
+            <div id="error" style="display:none">
+                <p>Failed to load. Please refresh.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Back to top -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
 
     <footer>
-        <p>Based on <a href="https://refactoringenglish.com/tools/hn-popularity/" target="_blank" rel="noopener">HN Popularity Contest 2025</a> &middot; Maintained by <a href="https://github.com/0xEmberZz" target="_blank" rel="noopener">@EmberZz</a></p>
+        <p>Based on <a href="https://refactoringenglish.com/tools/hn-popularity/" target="_blank" rel="noopener">HN Popularity Contest 2025</a> &middot; <a href="https://github.com/0xEmberZz" target="_blank" rel="noopener">@EmberZz</a></p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@12/dist/motion.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
