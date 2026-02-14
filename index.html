@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 博客每日精选 | Daily Digest</title>
+    <title>AI 博客每日精选</title>
     <meta name="description" content="来自 Karpathy 推荐的 92 个顶级技术博客，AI 精选每日科技资讯">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍄</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>🍄 AI 博客每日精选</h1>
-            <p class="subtitle">来自 Karpathy 推荐的 92 个顶级技术博客，AI 智能筛选</p>
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="logo">🍄 Daily Digest</a>
+            <button id="theme-toggle" aria-label="Toggle theme">
+                <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <main class="container">
+    <main>
         <div id="loading">
-            <div class="spinner"></div>
-            <p>加载今日精选中...</p>
+            <div class="loading-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <p>正在加载今日精选...</p>
         </div>
-        <div id="content"></div>
-        <div id="error" style="display: none;">
-            <p>❌ 加载失败，请稍后再试</p>
+        <article id="content"></article>
+        <div id="error" style="display:none">
+            <p>加载失败，请刷新重试。</p>
         </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>基于 <a href="https://refactoringenglish.com/tools/hn-popularity/" target="_blank">Hacker News Popularity Contest 2025</a> RSS 源列表</p>
-            <p>由 <a href="https://github.com/0xEmberZz" target="_blank">@EmberZz</a> 维护 | Powered by OpenClaw</p>
-        </div>
+        <p>基于 <a href="https://refactoringenglish.com/tools/hn-popularity/" target="_blank" rel="noopener">HN Popularity Contest 2025</a> · 由 <a href="https://github.com/0xEmberZz" target="_blank" rel="noopener">@EmberZz</a> 维护</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
