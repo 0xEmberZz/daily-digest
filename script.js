@@ -16,6 +16,13 @@ function setTheme(t) {
 setTheme(getTheme());
 
 // ============================================================
+// State
+// ============================================================
+
+let archiveIndex = [];  // sorted dates, newest first
+let currentDate = null;
+
+// ============================================================
 // Lobe Icons
 // ============================================================
 
@@ -56,7 +63,58 @@ function injectBrandIcons(el) {
 }
 
 // ============================================================
-// TOC Generation
+// Date Navigation
+// ============================================================
+
+async function loadArchiveIndex() {
+    try {
+        const res = await fetch('./digests/index.json');
+        if (!res.ok) return [];
+        const data = await res.json();
+        return (data.dates || []).sort().reverse(); // newest first
+    } catch {
+        return [];
+    }
+}
+
+function formatDateDisplay(dateStr) {
+    // "2026-02-15" → "Feb 15"
+    const d = new Date(dateStr + 'T00:00:00');
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    return `${months[d.getMonth()]} ${d.getDate()}`;
+}
+
+function updateDateNav() {
+    const prevBtn = document.getElementById('date-prev');
+    const nextBtn = document.getElementById('date-next');
+    const display = document.getElementById('date-current');
+
+    if (!display || archiveIndex.length === 0) return;
+
+    const idx = archiveIndex.indexOf(currentDate);
+
+    display.textContent = formatDateDisplay(currentDate);
+    display.title = currentDate;
+
+    // prev = older = higher index
+    if (prevBtn) prevBtn.disabled = idx >= archiveIndex.length - 1;
+    // next = newer = lower index
+    if (nextBtn) nextBtn.disabled = idx <= 0;
+}
+
+function navigateDate(direction) {
+    const idx = archiveIndex.indexOf(currentDate);
+    const newIdx = direction === 'prev' ? idx + 1 : idx - 1;
+
+    if (newIdx >= 0 && newIdx < archiveIndex.length) {
+        currentDate = archiveIndex[newIdx];
+        updateDateNav();
+        loadDigestByDate(currentDate);
+    }
+}
+
+// ============================================================
+// TOC
 // ============================================================
 
 function buildTOC(contentEl) {
@@ -64,13 +122,13 @@ function buildTOC(contentEl) {
     const tocNav = document.getElementById('toc-nav');
     if (!tocNav || headings.length === 0) return [];
 
+    // Clear old TOC items (keep indicator)
+    tocNav.querySelectorAll('a').forEach(a => a.remove());
+
     const items = [];
 
     headings.forEach((h, i) => {
-        // Ensure heading has an id
-        if (!h.id) {
-            h.id = 'section-' + i;
-        }
+        if (!h.id) h.id = 'section-' + i;
 
         const a = document.createElement('a');
         a.href = '#' + h.id;
@@ -81,7 +139,6 @@ function buildTOC(contentEl) {
         a.addEventListener('click', (e) => {
             e.preventDefault();
             h.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            // Close mobile TOC
             closeTOC();
             history.replaceState(null, '', '#' + h.id);
         });
@@ -92,10 +149,6 @@ function buildTOC(contentEl) {
 
     return items;
 }
-
-// ============================================================
-// TOC Active Tracking
-// ============================================================
 
 function setupTOCTracking(items) {
     if (items.length === 0) return;
@@ -115,10 +168,20 @@ function setupTOCTracking(items) {
     });
 
     items.forEach(item => observer.observe(item.el));
+
+    // Store observer for cleanup
+    window._tocObserver = observer;
+}
+
+function cleanupTOC() {
+    if (window._tocObserver) {
+        window._tocObserver.disconnect();
+        window._tocObserver = null;
+    }
 }
 
 // ============================================================
-// TOC open/close (mobile)
+// TOC mobile
 // ============================================================
 
 function openTOC() {
@@ -174,42 +237,35 @@ function setupBackToTop() {
 // ============================================================
 
 function calcReadingTime(text) {
-    // Chinese: ~400 chars/min, English: ~200 words/min
     const chinese = (text.match(/[\u4e00-\u9fff]/g) || []).length;
     const english = text.replace(/[\u4e00-\u9fff]/g, '').split(/\s+/).filter(Boolean).length;
-    const minutes = Math.ceil(chinese / 400 + english / 200);
-    return minutes;
+    return Math.ceil(chinese / 400 + english / 200);
 }
 
 // ============================================================
-// Scroll-reveal Animations
+// Scroll-reveal (Motion)
 // ============================================================
 
 function setupScrollReveal(contentEl) {
-    // Wrap each section (h2 + content until next h2) in a reveal container
     const children = Array.from(contentEl.children);
     let currentSection = null;
 
     children.forEach(child => {
         if (child.tagName === 'H2') {
-            // Start new section
             currentSection = document.createElement('div');
             currentSection.className = 'reveal-section';
             child.before(currentSection);
             currentSection.appendChild(child);
         } else if (child.tagName === 'HR' && currentSection) {
-            // HR ends a section
             currentSection = null;
         } else if (currentSection) {
             currentSection.appendChild(child);
         }
     });
 
-    // Observe sections
     const sections = contentEl.querySelectorAll('.reveal-section');
     if (sections.length === 0) return;
 
-    // Use Motion for animation if available
     const hasMotion = typeof Motion !== 'undefined' && Motion.animate;
 
     const observer = new IntersectionObserver((entries) => {
@@ -238,15 +294,10 @@ function setupScrollReveal(contentEl) {
     sections.forEach(s => observer.observe(s));
 }
 
-// ============================================================
-// Entrance animation for header area
-// ============================================================
-
 function animateEntrance(contentEl) {
     const hasMotion = typeof Motion !== 'undefined' && Motion.animate;
     if (!hasMotion) return;
 
-    // Animate the title and first blockquote
     const h1 = contentEl.querySelector('h1');
     const firstBq = contentEl.querySelector('blockquote');
 
@@ -254,7 +305,7 @@ function animateEntrance(contentEl) {
         h1.style.opacity = '0';
         Motion.animate(h1,
             { opacity: [0, 1], transform: ['translateY(12px)', 'translateY(0)'] },
-            { duration: 0.6, easing: [0.32, 0.72, 0, 1], delay: 0.1 }
+            { duration: 0.55, easing: [0.32, 0.72, 0, 1], delay: 0.05 }
         ).finished.then(() => { h1.style.opacity = '1'; });
     }
 
@@ -262,8 +313,33 @@ function animateEntrance(contentEl) {
         firstBq.style.opacity = '0';
         Motion.animate(firstBq,
             { opacity: [0, 1], transform: ['translateY(12px)', 'translateY(0)'] },
-            { duration: 0.6, easing: [0.32, 0.72, 0, 1], delay: 0.25 }
+            { duration: 0.55, easing: [0.32, 0.72, 0, 1], delay: 0.15 }
         ).finished.then(() => { firstBq.style.opacity = '1'; });
+    }
+}
+
+// ============================================================
+// Content transition animation
+// ============================================================
+
+function transitionContent(contentEl, renderFn) {
+    const hasMotion = typeof Motion !== 'undefined' && Motion.animate;
+
+    if (hasMotion) {
+        // Fade out
+        Motion.animate(contentEl,
+            { opacity: [1, 0], transform: ['translateY(0)', 'translateY(-8px)'] },
+            { duration: 0.2, easing: [0.32, 0.72, 0, 1] }
+        ).finished.then(() => {
+            renderFn();
+            // Fade in
+            Motion.animate(contentEl,
+                { opacity: [0, 1], transform: ['translateY(8px)', 'translateY(0)'] },
+                { duration: 0.35, easing: [0.32, 0.72, 0, 1] }
+            );
+        });
+    } else {
+        renderFn();
     }
 }
 
@@ -271,45 +347,59 @@ function animateEntrance(contentEl) {
 // Load Digest
 // ============================================================
 
-async function loadDigest() {
-    const loading = document.getElementById('loading');
+async function loadDigestByDate(date) {
     const content = document.getElementById('content');
+    const loading = document.getElementById('loading');
     const error = document.getElementById('error');
 
+    // Determine file path
+    const filePath = date ? `./digests/${date}.md` : './digests/latest.md';
+
     try {
-        const res = await fetch('./digests/latest.md');
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const res = await fetch(filePath);
+        if (!res.ok) {
+            // Fallback to latest
+            const fallback = await fetch('./digests/latest.md');
+            if (!fallback.ok) throw new Error('No digest available');
+            var md = await fallback.text();
+        } else {
+            var md = await res.text();
+        }
 
-        const md = await res.text();
+        const render = () => {
+            marked.setOptions({ gfm: true, breaks: false });
+            content.innerHTML = marked.parse(md);
 
-        marked.setOptions({ gfm: true, breaks: false });
+            loading.style.display = 'none';
+            content.style.display = 'block';
+            error.style.display = 'none';
 
-        content.innerHTML = marked.parse(md);
-        loading.style.display = 'none';
-        content.style.display = 'block';
+            // Reading time
+            const minutes = calcReadingTime(md);
+            const rtEl = document.getElementById('reading-time');
+            if (rtEl) rtEl.textContent = `${minutes} min read`;
 
-        // Reading time
-        const minutes = calcReadingTime(md);
-        const rtEl = document.getElementById('reading-time');
-        if (rtEl) rtEl.textContent = `${minutes} min read`;
+            // Brand icons
+            injectBrandIcons(content);
 
-        // Brand icons
-        injectBrandIcons(content);
+            // TOC (rebuild)
+            cleanupTOC();
+            const tocItems = buildTOC(content);
+            setupTOCTracking(tocItems);
 
-        // TOC
-        const tocItems = buildTOC(content);
-        setupTOCTracking(tocItems);
+            // Scroll-reveal
+            setupScrollReveal(content);
 
-        // Animations
-        animateEntrance(content);
-        setupScrollReveal(content);
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
 
-        // Handle anchors
-        if (location.hash) {
-            setTimeout(() => {
-                const el = document.querySelector(location.hash);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 200);
+        // If content is already visible, transition; otherwise render directly
+        if (content.style.display === 'block') {
+            transitionContent(content, render);
+        } else {
+            render();
+            animateEntrance(content);
         }
 
     } catch (err) {
@@ -319,12 +409,33 @@ async function loadDigest() {
     }
 }
 
+async function initDigest() {
+    // Load archive index
+    archiveIndex = await loadArchiveIndex();
+
+    // Determine which date to show
+    const hash = location.hash.replace('#', '');
+    if (hash && archiveIndex.includes(hash)) {
+        currentDate = hash;
+    } else if (archiveIndex.length > 0) {
+        currentDate = archiveIndex[0]; // newest
+    } else {
+        currentDate = null;
+    }
+
+    // Update nav
+    updateDateNav();
+
+    // Load
+    await loadDigestByDate(currentDate);
+}
+
 // ============================================================
 // Init
 // ============================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Theme toggle
+    // Theme
     document.getElementById('theme-toggle')?.addEventListener('click', () => {
         const cur = document.documentElement.getAttribute('data-theme');
         setTheme(cur === 'dark' ? 'light' : 'dark');
@@ -334,15 +445,27 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!localStorage.getItem('theme')) setTheme(e.matches ? 'dark' : 'light');
     });
 
-    // TOC toggle (mobile)
+    // TOC
     document.getElementById('toc-toggle')?.addEventListener('click', openTOC);
     document.getElementById('toc-close')?.addEventListener('click', closeTOC);
     document.getElementById('toc-backdrop')?.addEventListener('click', closeTOC);
+
+    // Date nav
+    document.getElementById('date-prev')?.addEventListener('click', () => navigateDate('prev'));
+    document.getElementById('date-next')?.addEventListener('click', () => navigateDate('next'));
+    document.getElementById('date-current')?.addEventListener('click', () => {
+        // Click date to go back to latest
+        if (archiveIndex.length > 0) {
+            currentDate = archiveIndex[0];
+            updateDateNav();
+            loadDigestByDate(currentDate);
+        }
+    });
 
     // Progress + Back to top
     setupProgress();
     setupBackToTop();
 
-    // Load content
-    loadDigest();
+    // Load
+    initDigest();
 });
