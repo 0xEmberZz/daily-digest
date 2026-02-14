@@ -243,6 +243,78 @@ function calcReadingTime(text) {
 }
 
 // ============================================================
+// Post-process: Stats bar, category pills, pick cards
+// ============================================================
+
+function postProcessContent(contentEl) {
+    // 1. Stats bar — convert data attributes to visual cards
+    const statsBar = contentEl.querySelector('.stats-bar');
+    if (statsBar) {
+        const sources = statsBar.dataset.sources || '0/0';
+        const articles = statsBar.dataset.articles || '0';
+        const filtered = statsBar.dataset.filtered || '0';
+        const hours = statsBar.dataset.hours || '48';
+        const selected = statsBar.dataset.selected || '0';
+
+        statsBar.innerHTML = `
+            <div class="stat-card">
+                <div class="stat-value">${sources}</div>
+                <div class="stat-label">Sources</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${articles}</div>
+                <div class="stat-label">Articles</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${hours}<span class="stat-unit">h</span></div>
+                <div class="stat-label">Time Range</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">${selected}</div>
+                <div class="stat-label">Selected</div>
+            </div>
+        `;
+    }
+
+    // 2. Category pills
+    const catEl = contentEl.querySelector('.stats-categories');
+    if (catEl) {
+        try {
+            const cats = JSON.parse(catEl.dataset.categories || '{}');
+            const sorted = Object.entries(cats).sort((a, b) => b[1] - a[1]);
+            catEl.innerHTML = sorted.map(([label, count]) =>
+                `<span class="cat-pill">${label}<span class="cat-count">${count}</span></span>`
+            ).join('');
+        } catch {}
+    }
+
+    // 3. Animate stat cards if Motion available
+    const hasMotion = typeof Motion !== 'undefined' && Motion.animate;
+    if (hasMotion && statsBar) {
+        const cards = statsBar.querySelectorAll('.stat-card');
+        cards.forEach((card, i) => {
+            card.style.opacity = '0';
+            Motion.animate(card,
+                { opacity: [0, 1], transform: ['translateY(10px)', 'translateY(0)'] },
+                { duration: 0.4, easing: [0.32, 0.72, 0, 1], delay: 0.1 + i * 0.06 }
+            ).finished.then(() => { card.style.opacity = '1'; });
+        });
+    }
+
+    // 4. Animate pick cards
+    if (hasMotion) {
+        const picks = contentEl.querySelectorAll('.pick-card');
+        picks.forEach((card, i) => {
+            card.style.opacity = '0';
+            Motion.animate(card,
+                { opacity: [0, 1], transform: ['translateY(14px)', 'translateY(0)'] },
+                { duration: 0.45, easing: [0.32, 0.72, 0, 1], delay: 0.2 + i * 0.1 }
+            ).finished.then(() => { card.style.opacity = '1'; });
+        });
+    }
+}
+
+// ============================================================
 // Scroll-reveal (Motion)
 // ============================================================
 
@@ -378,6 +450,9 @@ async function loadDigestByDate(date) {
             const minutes = calcReadingTime(md);
             const rtEl = document.getElementById('reading-time');
             if (rtEl) rtEl.textContent = `${minutes} min read`;
+
+            // Post-process stats, cards
+            postProcessContent(content);
 
             // Brand icons
             injectBrandIcons(content);
