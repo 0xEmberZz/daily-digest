@@ -2,19 +2,19 @@
 
 > Curated from 92 top tech blogs recommended by Karpathy. AI-selected Top 15.
 
-<div class="stats-bar" data-sources="89/92" data-articles="2505" data-filtered="34" data-hours="48" data-selected="15"></div>
+<div class="stats-bar" data-sources="89/92" data-articles="2505" data-filtered="16" data-hours="24" data-selected="15"></div>
 
-<div class="stats-categories" data-categories='{"AI / ML":6,"Opinion":5,"Engineering":3,"Tools / OSS":1}'></div>
+<div class="stats-categories" data-categories='{"AI / ML":2,"Opinion":3,"Tools / OSS":1,"Engineering":6,"Other":2,"Security":1}'></div>
 
 <div class="stats-tags">
 
-**ai**(6) · **anthropic**(3) · **openai**(2) · llm(1) · inference(1) · impersonation(1) · federal law(1) · dario amodei(1) · exponential growth(1) · data centers(1) · gpu(1) · capital expenditure(1) · product launch(1) · iteration(1) · startup(1) · product development(1) · package management(1) · namespaces(1) · npm(1) · maven(1)
+**ai**(4) · **number theory**(3) · **software development**(2) · modular arithmetic(2) · llm(1) · inference(1) · anthropic(1) · openai(1) · impersonation(1) · ethics(1) · regulation(1) · engineering(1) · roles(1) · teamwork(1) · junior developers(1) · profitability(1) · democratization(1) · no-code(1) · godot(1) · minesweeper(1)
 
 </div>
 
 ## Highlights
 
-今日看点：AI发展速度或将放缓，引发行业对未来瓶颈的担忧。同时，AI的伦理和社会影响日益凸显，呼吁法律监管的声音渐强。尽管AI工具涌现，但工程师，尤其是初级工程师，在AI时代的角色依然重要，甚至更具价值。
+今日看点：AI发展引发多方讨论，一方面，加速推理和模仿人类的AI应用面临伦理和法律挑战；另一方面，AI对开发者角色的影响存在争议，初级开发者价值或将提升。此外，文本驱动的设计理念正逐渐受到关注，为设计领域带来新的可能性。
 
 ---
 
@@ -26,9 +26,9 @@
 
 [Two different tricks for fast LLM inference](https://seangoedecke.com/fast-llm-inference/) — seangoedecke.com · 1 小时前 · AI / ML
 
-> Anthropic和OpenAI都推出了“快速模式”，旨在提高代码模型的交互速度。但两种快速模式的实现方式截然不同。Anthropic的快速模式提供高达2.5倍的tokens/秒的吞吐量，而OpenAI的实现方式则未公开。文章对比了这两种方法的差异，并探讨了其背后的技术原理。
+> Anthropic和OpenAI最近都推出了“快速模式”，旨在以更高的速度与他们的最佳编码模型进行交互。Anthropic的快速模式提供高达2.5倍的tokens/秒的吞吐量，通过减少模型大小和使用更高效的解码技术实现。OpenAI的快速模式则通过并行处理多个请求来提高速度，更像是一个负载均衡器。两种方法各有侧重，Anthropic侧重于优化单个请求的速度，而OpenAI侧重于提高并发处理能力。
 
-**Why read this**: 了解Anthropic和OpenAI如何通过不同的技术手段加速LLM推理，有助于开发者选择更适合自身需求的方案。
+**Why read this**: 了解Anthropic和OpenAI如何通过不同策略优化LLM推理速度，有助于开发者根据自身需求选择合适的加速方案。
 
 `LLM` `inference` `Anthropic` `OpenAI`
 
@@ -36,29 +36,29 @@
 
 <div class="pick-card">
 
-#2 **我们迫切需要一项联邦法律，禁止AI模仿人类**
+#2 **我们迫切需要一项联邦法律，禁止人工智能模仿人类**
 
 [We URGENTLY need a federal law forbidding AI from impersonating humans](https://garymarcus.substack.com/p/we-urgently-need-a-federal-law-forbidding) — garymarcus.substack.com · 7 小时前 · AI / ML
 
-> 文章呼吁制定联邦法律，禁止人工智能冒充人类。作者认为，AI模仿人类的行为会带来严重的伦理和社会问题，需要法律的约束。
+> 文章强调了人工智能模仿人类所带来的潜在危险，并呼吁制定联邦法律来禁止这种行为。作者认为，AI模仿人类可能导致欺骗、操纵和社会信任的瓦解。文章引用了Daniel Dennett的观点，强调了这项法律的紧迫性。
 
-**Why read this**: 了解AI发展带来的潜在风险，以及对相关法律法规的需求，有助于我们更好地应对AI时代的挑战。
+**Why read this**: 了解AI模仿人类的潜在风险以及法律监管的必要性，有助于我们更好地应对AI发展带来的伦理和社会挑战。
 
-`AI` `impersonation` `federal law`
+`AI` `impersonation` `ethics` `regulation`
 
 </div>
 
 <div class="pick-card">
 
-#3 **Dario Amodei：“我们已接近指数增长的尾声”**
+#3 **引用Boris Cherny**
 
-[Dario Amodei — "We are near the end of the exponential"](https://www.dwarkesh.com/p/dario-amodei-2) — dwarkesh.com · 1 天前 · AI / ML
+[Quoting Boris Cherny](https://simonwillison.net/2026/Feb/14/boris/#atom-everything) — simonwillison.net · 1 小时前 · Opinion
 
-> Dario Amodei 认为人工智能的发展正接近指数增长的尾声，并表达了紧迫感。他强调了当前形势的严峻性，暗示未来AI发展可能面临瓶颈或挑战。
+> Boris Cherny，Claude Code的创建者，认为即使在AI时代，工程师仍然至关重要。他指出，仍然需要有人来prompt Claude模型，与客户沟通，与其他团队协调，并决定下一步构建什么。工程的角色正在改变，但优秀的工程师比以往任何时候都更加重要。
 
-**Why read this**: 了解AI领域领军人物对未来发展趋势的判断，有助于我们把握行业脉搏。
+**Why read this**: 了解AI时代工程师的角色转变，有助于工程师们更好地适应未来的工作需求。
 
-`Dario Amodei` `AI` `exponential growth` `Anthropic`
+`engineering` `AI` `roles` `teamwork`
 
 </div>
 
@@ -70,194 +70,200 @@
 ```mermaid
 pie showData
     title "Category Distribution"
-    "AI / ML" : 6
-    "Opinion" : 5
-    "Engineering" : 3
+    "Engineering" : 6
+    "Opinion" : 3
+    "AI / ML" : 2
+    "Other" : 2
     "Tools / OSS" : 1
+    "Security" : 1
 ```
 
 ```mermaid
 xychart-beta horizontal
     title "高频关键词"
-    x-axis ["ai", "anthropic", "openai", "llm", "inference", "impersonation", "federal law", "dario amodei", "exponential growth", "data centers", "gpu", "capital expenditure"]
-    y-axis "出现次数" 0 --> 8
-    bar [6, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    x-axis ["ai", "number theory", "software development", "modular arithmetic", "llm", "inference", "anthropic", "openai", "impersonation", "ethics", "regulation", "engineering"]
+    y-axis "出现次数" 0 --> 6
+    bar [4, 3, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1]
 ```
 
 ```
-ai                 │ ████████████████████ 6
-anthropic          │ ██████████░░░░░░░░░░ 3
-openai             │ ███████░░░░░░░░░░░░░ 2
-llm                │ ███░░░░░░░░░░░░░░░░░ 1
-inference          │ ███░░░░░░░░░░░░░░░░░ 1
-impersonation      │ ███░░░░░░░░░░░░░░░░░ 1
-federal law        │ ███░░░░░░░░░░░░░░░░░ 1
-dario amodei       │ ███░░░░░░░░░░░░░░░░░ 1
-exponential growth │ ███░░░░░░░░░░░░░░░░░ 1
-data centers       │ ███░░░░░░░░░░░░░░░░░ 1
+ai                   │ ████████████████████ 4
+number theory        │ ███████████████░░░░░ 3
+software development │ ██████████░░░░░░░░░░ 2
+modular arithmetic   │ ██████████░░░░░░░░░░ 2
+llm                  │ █████░░░░░░░░░░░░░░░ 1
+inference            │ █████░░░░░░░░░░░░░░░ 1
+anthropic            │ █████░░░░░░░░░░░░░░░ 1
+openai               │ █████░░░░░░░░░░░░░░░ 1
+impersonation        │ █████░░░░░░░░░░░░░░░ 1
+ethics               │ █████░░░░░░░░░░░░░░░ 1
 ```
 
 </details>
 
 ---
 
-## AI / ML
+## Engineering
 
-### 1. 快速LLM推理的两种技巧
+### 1. Python中的Wagon算法
 
-[Two different tricks for fast LLM inference](https://seangoedecke.com/fast-llm-inference/) — **seangoedecke.com** · 1 小时前 · 23/30
+[Wagon’s algorithm in Python](https://www.johndcook.com/blog/2026/02/14/wagons-algorithm-in-python/) — **johndcook.com** · 1 小时前 · 18/30
 
-> Anthropic和OpenAI都推出了“快速模式”，旨在提高代码模型的交互速度。但两种快速模式的实现方式截然不同。Anthropic的快速模式提供高达2.5倍的tokens/秒的吞吐量，而OpenAI的实现方式则未公开。文章对比了这两种方法的差异，并探讨了其背后的技术原理。
+> 文章介绍了Stan Wagon的算法，用于寻找满足x² + y² = p的x和y，其中p是一个奇素数。文章指出，高斯的公式虽然可以找到解，但对于较大的p来说并不实用。Wagon算法提供了一种更有效的解决方案。
 
-`LLM` `inference` `Anthropic` `OpenAI`
-
----
-
-### 2. 我们迫切需要一项联邦法律，禁止AI模仿人类
-
-[We URGENTLY need a federal law forbidding AI from impersonating humans](https://garymarcus.substack.com/p/we-urgently-need-a-federal-law-forbidding) — **garymarcus.substack.com** · 7 小时前 · 23/30
-
-> 文章呼吁制定联邦法律，禁止人工智能冒充人类。作者认为，AI模仿人类的行为会带来严重的伦理和社会问题，需要法律的约束。
-
-`AI` `impersonation` `federal law`
+`Wagon's algorithm` `number theory` `Python`
 
 ---
 
-### 3. Dario Amodei：“我们已接近指数增长的尾声”
+### 2. 求-1模p的平方根
 
-[Dario Amodei — "We are near the end of the exponential"](https://www.dwarkesh.com/p/dario-amodei-2) — **dwarkesh.com** · 1 天前 · 23/30
+[Finding a square root of -1 mod p](https://www.johndcook.com/blog/2026/02/14/square-root-minus-1-mod-p/) — **johndcook.com** · 2 小时前 · 18/30
 
-> Dario Amodei 认为人工智能的发展正接近指数增长的尾声，并表达了紧迫感。他强调了当前形势的严峻性，暗示未来AI发展可能面临瓶颈或挑战。
+> 文章讨论了如何找到x² = −1 mod p的解，其中p是一个奇素数。定理表明，当且仅当p = 1 mod 4时，该方程有解。文章介绍了Stan Wagon的算法，用于将奇素数p表示为两个平方和，从而找到解。
 
-`Dario Amodei` `AI` `exponential growth` `Anthropic`
-
----
-
-### 4. 高级：AI数据中心的金融危机
-
-[Premium: The AI Data Center Financial Crisis](https://www.wheresyoured.at/data-center-crisis/) — **wheresyoured.at** · 1 天前 · 23/30
-
-> 自2023年初以来，大型科技公司已在资本支出上投入超过8140亿美元，其中大部分用于满足OpenAI和Anthropic等AI公司的需求。这些支出主要集中在GPU、电力基础设施和数据中心建设上。文章探讨了这种大规模投资可能带来的金融风险和挑战。
-
-`AI` `data centers` `GPU` `capital expenditure`
+`square root` `modular arithmetic` `number theory`
 
 ---
 
-### 5. Anthropic 的公共利益使命
+### 3. 寻找一个模p的非平方数
 
-[Anthropic's public benefit mission](https://simonwillison.net/2026/Feb/13/anthropic-public-benefit-mission/#atom-everything) — **simonwillison.net** · 1 天前 · 20/30
+[Finding a non-square mod p](https://www.johndcook.com/blog/2026/02/14/finding-a-non-square/) — **johndcook.com** · 3 小时前 · 18/30
 
-> Anthropic 是一家“公共利益公司”，但不是非营利组织，因此没有像 OpenAI 那样每年向 IRS 提交公开文件的要求。文章探讨了Anthropic作为公共利益公司所承担的社会责任和使命。
+> 文章介绍了Stan Wagon的算法，用于将奇素数p表示为两个平方和（当p = 1 mod 4时）。Wagon算法需要首先找到一个模p的非平方数c，即对于1到p-1中的任何d，c ≠ d² mod p。
 
-`Anthropic` `public benefit` `mission`
+`non-square` `modular arithmetic` `number theory`
 
 ---
 
-### 6. OpenAI 使命声明的演变
+### 4. 设计解构
 
-[The evolution of OpenAI's mission statement](https://simonwillison.net/2026/Feb/13/openai-mission-statement/#atom-everything) — **simonwillison.net** · 1 天前 · 20/30
+[Design Deconstruction](https://feed.tedium.co/link/15204/17276365/text-based-design-mindset) — **tedium.co** · 8 小时前 · 18/30
 
-> OpenAI 作为一家美国 501(c)(3) 组织，每年都需要向 IRS 提交税务申报表。申报表中的一个必填字段是“简要描述该组织的任务或最重要的活动”，IRS 可以使用它来评估该组织是否坚持其使命并应保持其非营利免税地位。文章分析了 OpenAI 使命声明的演变过程。
+> 文章探讨了设计领域中鼠标和GUI的依赖性，并提出设计也可以是文本驱动的。作者认为，没有理由认为设计必须依赖于图形界面，文本驱动的设计可以提供不同的视角和可能性。
 
-`OpenAI` `mission statement` `IRS`
+`design` `GUI` `text-driven`
+
+---
+
+### 5. 随着复杂性增加，架构的重要性超越具体实现
+
+[As Complexity Grows, Architecture Dominates Material](https://worksonmymachine.ai/p/as-complexity-grows-architecture) — **worksonmymachine.substack.com** · 9 小时前 · 18/30
+
+> 文章探讨了在软件系统复杂性日益增加的背景下，架构设计的重要性。作者回顾了 1997 年的一个演讲，强调了架构在应对复杂性方面的关键作用。随着系统规模和复杂度的增长，良好的架构能够提供清晰的结构和组织，从而更容易理解、维护和扩展系统。因此，在构建复杂系统时，应该优先考虑架构设计，而非仅仅关注具体的实现细节。
+
+`software architecture` `complexity` `material`
+
+---
+
+### 6. Intel 8087 浮点芯片中的指令解码
+
+[Instruction decoding in the Intel 8087 floating-point chip](http://www.righto.com/feeds/8201340188892833254/comments/default) — **righto.com** · 8 小时前 · 17/30
+
+> 文章深入研究了 Intel 8087 浮点协处理器芯片的指令解码过程。8087 芯片在 1980 年代显著提升了 IBM PC 的运算速度，尤其在 CAD 软件、电子表格和飞行模拟器等应用中。该芯片不仅支持加减乘除，还能计算三角函数和对数等超越函数，并提供 π 等常量，总共增加了 62 条新指令。文章详细分析了 8087 如何解码这些指令，揭示了其内部的工作原理。
+
+`Intel 8087` `floating-point` `coprocessor` `instruction decoding`
 
 ---
 
 ## Opinion
 
-### 7. 发布三次
+### 7. 引用Boris Cherny
 
-[Launch it 3 times](https://anildash.com/2026/02/13/launch-it-three-times/) — **anildash.com** · 1 天前 · 22/30
+[Quoting Boris Cherny](https://simonwillison.net/2026/Feb/14/boris/#atom-everything) — **simonwillison.net** · 1 小时前 · 22/30
 
-> 作者建议在发布产品或创立公司时，至少要尝试发布三次。因为一个想法往往需要多次迭代和调整才能真正引起目标用户的共鸣。每次发布都可能意味着细微的调整或重大的改变。
+> Boris Cherny，Claude Code的创建者，认为即使在AI时代，工程师仍然至关重要。他指出，仍然需要有人来prompt Claude模型，与客户沟通，与其他团队协调，并决定下一步构建什么。工程的角色正在改变，但优秀的工程师比以往任何时候都更加重要。
 
-`product launch` `iteration` `startup` `product development`
-
----
-
-### 8. 引用 Boris Cherny
-
-[Quoting Boris Cherny](https://simonwillison.net/2026/Feb/14/boris/#atom-everything) — **simonwillison.net** · 1 小时前 · 20/30
-
-> Boris Cherny (Claude Code 的创建者) 认为，即使在 AI 时代，仍然需要大量的工程师来负责提示 Claude、与客户沟通、协调团队以及决定下一步构建什么。他强调了优秀工程师的重要性。
-
-`engineering` `AI` `teamwork`
+`engineering` `AI` `roles` `teamwork`
 
 ---
 
-### 9. 引用 Thoughtworks
+### 8. 引用Thoughtworks
 
-[Quoting Thoughtworks](https://simonwillison.net/2026/Feb/14/thoughtworks/#atom-everything) — **simonwillison.net** · 20 小时前 · 20/30
+[Quoting Thoughtworks](https://simonwillison.net/2026/Feb/14/thoughtworks/#atom-everything) — **simonwillison.net** · 20 小时前 · 22/30
 
-> Thoughtworks 的报告指出，AI 工具并没有消除对初级开发人员的需求，反而使他们比以往任何时候都更有价值。AI 工具帮助他们更快地度过最初的负产出阶段，并且他们比高级工程师更擅长使用 AI 工具。
+> Thoughtworks的报告挑战了AI会消除初级开发人员需求的观点。报告指出，初级开发人员现在比以往任何时候都更有价值，因为AI工具可以帮助他们更快地度过最初的净负收益阶段。他们是未来生产力的看涨期权，并且比高级工程师更擅长使用AI工具，因为他们从未形成固有的偏见。
 
-`AI` `junior developers` `profitability`
-
----
-
-### 10. AI Twitter最喜欢的谎言：每个人都想成为开发者
-
-[AI twitter's favourite lie: everyone wants to be a developer](https://www.joanwestenberg.com/ai-twitters-favourite-lie-everyone-wants-to-be-a-developer/) — **joanwestenberg.com** · 23 小时前 · 20/30
-
-> 文章批判了AI领域的一种观点，即大型语言模型（LLM）的出现将使每个人都能成为软件开发者。这种观点认为，因为软件可以解决问题，而AI消除了人们与软件之间的障碍，所以每个人都会构建自己的软件。作者认为这种想法过于简化，忽略了软件开发的复杂性和专业性，以及并非每个人都有成为开发者的意愿和能力。文章强调，AI工具可以辅助开发，但并不能完全取代开发者。
-
-`AI` `software development` `no-code`
+`AI` `junior developers` `software development` `profitability`
 
 ---
 
-### 11. 小众网站很难被发现
+### 9. AI Twitter最喜欢的谎言：每个人都想成为开发者
 
-[The Small Web is Tricky to Find](https://matduggan.com/the-small-web-is-tricky-to-find/) — **matduggan.com** · 1 天前 · 19/30
+[AI twitter's favourite lie: everyone wants to be a developer](https://www.joanwestenberg.com/ai-twitters-favourite-lie-everyone-wants-to-be-a-developer/) — **joanwestenberg.com** · 23 小时前 · 22/30
 
-> 文章讨论了发现小众网站的挑战，作者开发了一个Firefox扩展程序，旨在帮助用户发现更多不同类别的网站。用户反馈表明，他们希望扩展程序能提供更多网站类别选项。这促使作者需要解析网站信息，并尝试将它们归类。
+> 文章批判了Twitter上一种流行的观点，即大型语言模型能够编写代码后，每个人都会成为软件开发者。作者认为，虽然AI降低了开发软件的门槛，但并非每个人都渴望或需要成为开发者。人们有各种各样的问题需要解决，而软件只是其中一种解决方案。
 
-`small web` `firefox extension` `web categories` `discovery`
-
----
-
-## Engineering
-
-### 12. 包管理命名空间
-
-[Package Management Namespaces](https://nesbitt.io/2026/02/14/package-management-namespaces.html) — **nesbitt.io** · 1 天前 · 21/30
-
-> 文章比较了 npm、Maven、Go、Swift 和 crates.io 等包管理工具的命名空间模型。通过对比不同平台的实现方式，探讨了命名空间在包管理中的作用和重要性。
-
-`package management` `namespaces` `npm` `Maven`
+`AI` `software development` `democratization` `no-code`
 
 ---
 
-### 13. Reachy Mini测评：Hugging Face的树莓派驱动机器人
+## AI / ML
 
-[Testing Reachy Mini - Hugging Face's Pi powered robot](https://www.jeffgeerling.com/blog/2026/testing-reachy-mini-hugging-face-robot/) — **jeffgeerling.com** · 1 天前 · 20/30
+### 10. 快速LLM推理的两种技巧
 
-> 本文评测了Hugging Face与Pollination Robotics合作开发的Reachy Mini机器人。Reachy Mini是一款基于树莓派的开源机器人，旨在提供一个低成本、可定制的机器人平台，用于研究和教育。作者Jeff Geerling测试了Reachy Mini的各种功能，包括头部运动、物体识别和语音交互。尽管存在一些软件和硬件限制，但作者认为Reachy Mini具有很大的潜力，尤其是在机器人教育和研究领域，并期待未来软件更新带来的改进。
+[Two different tricks for fast LLM inference](https://seangoedecke.com/fast-llm-inference/) — **seangoedecke.com** · 1 小时前 · 24/30
 
-`Reachy Mini` `robot` `Hugging Face` `Raspberry Pi`
+> Anthropic和OpenAI最近都推出了“快速模式”，旨在以更高的速度与他们的最佳编码模型进行交互。Anthropic的快速模式提供高达2.5倍的tokens/秒的吞吐量，通过减少模型大小和使用更高效的解码技术实现。OpenAI的快速模式则通过并行处理多个请求来提高速度，更像是一个负载均衡器。两种方法各有侧重，Anthropic侧重于优化单个请求的速度，而OpenAI侧重于提高并发处理能力。
+
+`LLM` `inference` `Anthropic` `OpenAI`
 
 ---
 
-### 14. 随着复杂性增加，架构胜过材料
+### 11. 我们迫切需要一项联邦法律，禁止人工智能模仿人类
 
-[As Complexity Grows, Architecture Dominates Material](https://worksonmymachine.ai/p/as-complexity-grows-architecture) — **worksonmymachine.substack.com** · 9 小时前 · 19/30
+[We URGENTLY need a federal law forbidding AI from impersonating humans](https://garymarcus.substack.com/p/we-urgently-need-a-federal-law-forbidding) — **garymarcus.substack.com** · 7 小时前 · 24/30
 
-> 文章探讨了随着系统复杂性增加，架构设计的重要性日益凸显。作者引用了1997年的一场演讲，强调在复杂系统中，良好的架构能够更好地应对变化和维护，而具体的实现细节（“材料”）则相对次要。文章暗示，在软件开发中，优先考虑清晰、可扩展的架构，比过早关注代码细节更为重要。
+> 文章强调了人工智能模仿人类所带来的潜在危险，并呼吁制定联邦法律来禁止这种行为。作者认为，AI模仿人类可能导致欺骗、操纵和社会信任的瓦解。文章引用了Daniel Dennett的观点，强调了这项法律的紧迫性。
 
-`complexity` `architecture` `software design`
+`AI` `impersonation` `ethics` `regulation`
+
+---
+
+## Other
+
+### 12. 书评：《20 GOTO 10 - 关于复古电脑的 10101001 个事实》
+
+[Book Review: 20 Goto 10 - 10101001 facts about retro computers by Steven Goodwin ★★★★☆](https://shkspr.mobi/blog/2026/02/book-review-20-goto-10-10101001-facts-about-retro-computers-by-steven-goodwin/) — **shkspr.mobi** · 12 小时前 · 15/30
+
+> 这是一篇关于书籍《20 GOTO 10 - 关于复古电脑的 10101001 个事实》的评论。该书包含近 200 篇文章，涵盖了从简短轶事到复杂主题概要的各种内容，以非线性方式探索复古计算的历史。每个章节都以一个多项选择题“GOTO”结尾，引导读者在复古计算知识中漫游。评论者给予该书四星好评，认为它是一本优秀的“消遣”读物。
+
+`retro computers` `history` `book review`
+
+---
+
+### 13. 阅读清单 2026/02/14
+
+[Reading list 02/14/26](https://www.construction-physics.com/p/reading-list-021426) — **construction-physics.com** · 12 小时前 · 12/30
+
+> 这是一份关于建筑、基础设施和工业技术的每周新闻和链接列表。它汇总了与建筑行业相关的各种新闻和资源，为读者提供了一个快速了解行业动态的入口。具体内容需要点击链接查看。
+
+`buildings` `infrastructure` `industrial technology`
 
 ---
 
 ## Tools / OSS
 
-### 15. 在Godot 4.1中重现Windows 2000扫雷
+### 14. 在Godot 4.1中重现Windows 2000扫雷
 
-[Windows 2000 Minesweeper recreated in Godot 4.1](https://jayd.ml/2026/02/14/godot-minesweeper.html) — **jayd.ml** · 12 小时前 · 19/30
+[Windows 2000 Minesweeper recreated in Godot 4.1](https://jayd.ml/2026/02/14/godot-minesweeper.html) — **jayd.ml** · 12 小时前 · 20/30
 
-> 作者使用Godot 4.1游戏引擎，尽可能精确地重现了Windows 2000版本的扫雷游戏。该项目旨在熟悉Godot引擎，并提供了一个无需考虑游戏设计，只需关注实现细节的实践机会。最终，作者将30%的时间用于游戏核心逻辑，70%的时间用于菜单、对话框等细节。该项目已开源，并提供在线试玩。
+> 作者使用Godot 4.1尽可能精确地重现了Windows 2000扫雷游戏。该项目旨在熟悉Godot引擎，最终作者将30%的时间花在游戏本身，70%的时间花在菜单、对话框和其他琐碎的事情上。该游戏可以在minesweeper.jayd.ml上玩，源代码可在AGPL许可下获得。
 
 `Godot` `Minesweeper` `game development`
 
 ---
 
-*生成于 2026-02-15 01:00 | 扫描 89 源 → 获取 2505 篇 → 精选 15 篇*
+## Security
+
+### 15. 微软 Game Pass Ultimate 账单欺诈
+
+[Microsoft Game Pass Ultimate Billing Fraud](https://jayd.ml/2026/02/14/microsoft-game-pass-fraud.html) — **jayd.ml** · 10 小时前 · 15/30
+
+> 作者讲述了购买 Xbox Series X 的经历，并提及了早期将 Xbox Live Gold 低价转换为 Game Pass Ultimate 的方法。文章主要关注了微软 Game Pass Ultimate 的账单问题，可能涉及利用漏洞或促销活动来降低订阅成本。具体欺诈细节需要阅读原文才能了解。
+
+`Microsoft` `Game Pass` `billing fraud`
+
+---
+
+*生成于 2026-02-15 01:06 | 扫描 89 源 → 获取 2505 篇 → 精选 15 篇*
 *基于 [Hacker News Popularity Contest 2025](https://refactoringenglish.com/tools/hn-popularity/) RSS 源列表，由 [Andrej Karpathy](https://x.com/karpathy) 推荐*
