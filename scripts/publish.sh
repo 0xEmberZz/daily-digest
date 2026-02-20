@@ -11,14 +11,9 @@ INDEX_FILE="$DIGESTS_DIR/index.json"
 
 export PATH="$HOME/.bun/bin:$PATH"
 
-# Read API key from config
-CONFIG="$HOME/.hn-daily-digest/config.json"
-if [ -f "$CONFIG" ]; then
-    export GEMINI_API_KEY=$(python3 -c "import json; print(json.load(open('$CONFIG'))['geminiApiKey'])" 2>/dev/null || echo "")
-fi
-
-if [ -z "$GEMINI_API_KEY" ]; then
-    echo "[publish] Error: No GEMINI_API_KEY found"
+# Claude CLI mode — no API key needed, uses `claude -p` subprocess
+if ! command -v claude &>/dev/null; then
+    echo "[publish] Error: 'claude' CLI not found. Install with: npm i -g @anthropic-ai/claude-code"
     exit 1
 fi
 
