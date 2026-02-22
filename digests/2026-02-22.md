@@ -4,17 +4,17 @@
 
 <div class="stats-bar" data-sources="89/92" data-articles="2504" data-filtered="23" data-hours="48" data-selected="15"></div>
 
-<div class="stats-categories" data-categories='{"AI / ML":5,"Security":1,"Opinion":6,"Tools / OSS":1,"Engineering":2}'></div>
+<div class="stats-categories" data-categories='{"Tools / OSS":2,"Security":1,"AI / ML":3,"Engineering":3,"Opinion":6}'></div>
 
 <div class="stats-tags">
 
-**local ai**(2) · **llama.cpp**(1) · **acquisition**(1) · phishing(1) · mfa bypass(1) · cybersecurity threat(1) · llama 3.1(1) · inference optimization(1) · custom hardware(1) · gpt-5.3(1) · inference speed(1) · token throughput(1) · prompt caching(1) · latency optimization(1) · agentic ai(1) · nvidia(1) · openai(1) · investment strategy(1) · open source(1) · project lifecycle(1)
+**prompt caching**(1) · **latency optimization**(1) · **cost reduction**(1) · phishing(1) · mfa bypass(1) · cyber threats(1) · llama 3.1(1) · inference optimization(1) · custom hardware(1) · gpt-5.3(1) · inference speed(1) · llm performance(1) · ggml(1) · hugging face(1) · local models(1) · ecosystem(1) · open source(1) · maintenance(1) · project sustainability(1) · nvidia(1)
 
 </div>
 
 ## Highlights
 
-本周AI产业迎来两大关键动向：开源本地化模型生态加速整合，ggml.ai并入Hugging Face进一步巩固本地大模型的长期发展路径，同时推理性能突破上限，Taalas等服务商已将Llama级别模型的推理速度提升至每秒17000token的实用级别；与此同时，安全威胁持续演变，以Starkiller为代表的新型钓鱼服务通过实时代理真实登录页面和多因素认证，大幅降低了攻击成本。这两条线索映照出当前AI浪潮的双面性：技术赋能加速民主化，但伴随而来的风险也在急速升级。
+提示词缓存技术正成为AI代理产品的核心基础设施，通过降低延迟和成本驱动长期运行应用的可行性。同时，大模型推理性能优化持续加速，从定制硬件的17000令牌/秒到OpenAI的1200+令牌/秒，推理效率竞争日趋激烈。在安全威胁方面，钓鱼即服务平台通过代理真实登录页面和MFA中继，标志着网络攻击手段的新升级。此外，开源模型生态正在整合，ggml.ai并入Hugging Face体现了本地AI长期发展的稳定化趋势。
 
 ---
 
@@ -22,35 +22,41 @@
 
 <div class="pick-card">
 
-#1 **ggml.ai joins Hugging Face to ensure the long-term progress of Local AI**
+#1 **提示词缓存如何使Claude Code等长期运行的AI代理产品成为可能**
 
-[ggml.ai joins Hugging Face to ensure the long-term progress of Local AI](https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything) — simonwillison.net · 1 天前 · AI / ML
+[Quoting Thariq Shihipar](https://simonwillison.net/2026/Feb/20/thariq-shihipar/#atom-everything) — simonwillison.net · 1 天前 · Tools / OSS
 
-> ggml.ai joins Hugging Face to ensure the long-term progress of Local AI
+> 长期运行的代理产品（如Claude Code）的可行性依赖于提示词缓存技术。提示词缓存通过复用先前请求的计算结果，显著降低延迟和成本。Claude Code团队围绕提示词缓存构建了整套系统架构，通过提高缓存命中率来降低成本并为订阅用户提供更加宽松的速率限制。团队通过告警监控缓存表现，确保系统的高效运行。
 
-`llama.cpp` `local AI` `acquisition`
+**Why read this**: 揭示了现代AI产品关键的性能优化技术原理，对理解AI应用成本模型和工程实践很有参考价值。
+
+`prompt caching` `latency optimization` `cost reduction`
 
 </div>
 
 <div class="pick-card">
 
-#2 **‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA**
+#2 **"Starkiller"钓鱼服务通过代理真实登录页面和多因素认证进行攻击**
 
 [‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA](https://krebsonsecurity.com/2026/02/starkiller-phishing-service-proxies-real-login-pages-mfa/) — krebsonsecurity.com · 1 天前 · Security
 
-> ‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA
+> 一种新型钓鱼即服务（PhaaS）平台Starkiller克服了传统钓鱼网站易被识别和快速下架的问题。该服务采用伪装链接加载目标品牌的真实网站，然后作为受害者与合法网站之间的中继，转发用户名、密码和多因素认证信息。这种代理中间人的方式使得钓鱼攻击更难被检测，威胁程度大幅提升。
 
-`phishing` `MFA bypass` `cybersecurity threat`
+**Why read this**: 警示了一种高度隐蔽的新型钓鱼攻击方式，即使是多因素认证也可能被绕过，需要关注其对网络安全的实际威胁。
+
+`phishing` `MFA bypass` `cyber threats`
 
 </div>
 
 <div class="pick-card">
 
-#3 **Taalas serves Llama 3.1 8B at 17,000 tokens/second**
+#3 **Taalas推出定制硬件实现Llama 3.1 8B模型，吞吐量达17000令牌/秒**
 
 [Taalas serves Llama 3.1 8B at 17,000 tokens/second](https://simonwillison.net/2026/Feb/20/taalas/#atom-everything) — simonwillison.net · 1 天前 · AI / ML
 
-> Taalas serves Llama 3.1 8B at 17,000 tokens/second
+> 加拿大硬件初创公司Taalas发布了首款产品——Llama 3.1 8B模型的定制硬件实现，运行速度达到惊人的17000令牌/秒。这款硬件产品针对小型开源模型进行了专门优化，相比通用GPU的性能有数量级的提升。
+
+**Why read this**: 展示了专用硬件在AI推理性能上的巨大潜力，为本地部署和边缘计算提供了新的可行方案。
 
 `Llama 3.1` `inference optimization` `custom hardware`
 
@@ -65,31 +71,31 @@
 pie showData
     title "Category Distribution"
     "Opinion" : 6
-    "AI / ML" : 5
-    "Engineering" : 2
+    "AI / ML" : 3
+    "Engineering" : 3
+    "Tools / OSS" : 2
     "Security" : 1
-    "Tools / OSS" : 1
 ```
 
 ```mermaid
 xychart-beta horizontal
     title "高频关键词"
-    x-axis ["local ai", "llama.cpp", "acquisition", "phishing", "mfa bypass", "cybersecurity threat", "llama 3.1", "inference optimization", "custom hardware", "gpt-5.3", "inference speed", "token throughput"]
-    y-axis "出现次数" 0 --> 4
-    bar [2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    x-axis ["prompt caching", "latency optimization", "cost reduction", "phishing", "mfa bypass", "cyber threats", "llama 3.1", "inference optimization", "custom hardware", "gpt-5.3", "inference speed", "llm performance"]
+    y-axis "出现次数" 0 --> 3
+    bar [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ```
 
 ```
-local ai               │ ████████████████████ 2
-llama.cpp              │ ██████████░░░░░░░░░░ 1
-acquisition            │ ██████████░░░░░░░░░░ 1
-phishing               │ ██████████░░░░░░░░░░ 1
-mfa bypass             │ ██████████░░░░░░░░░░ 1
-cybersecurity threat   │ ██████████░░░░░░░░░░ 1
-llama 3.1              │ ██████████░░░░░░░░░░ 1
-inference optimization │ ██████████░░░░░░░░░░ 1
-custom hardware        │ ██████████░░░░░░░░░░ 1
-gpt-5.3                │ ██████████░░░░░░░░░░ 1
+prompt caching         │ ████████████████████ 1
+latency optimization   │ ████████████████████ 1
+cost reduction         │ ████████████████████ 1
+phishing               │ ████████████████████ 1
+mfa bypass             │ ████████████████████ 1
+cyber threats          │ ████████████████████ 1
+llama 3.1              │ ████████████████████ 1
+inference optimization │ ████████████████████ 1
+custom hardware        │ ████████████████████ 1
+gpt-5.3                │ ████████████████████ 1
 ```
 
 </details>
@@ -104,47 +110,47 @@ gpt-5.3                │ ██████████░░░░░░░�
 
 > Nvidia was only invited to invest
 
-`Nvidia` `OpenAI` `investment strategy`
+`Nvidia` `OpenAI` `investment`
 
 ---
 
-### 2. Whale Fall
+### 2. Andrej Karpathy talks about "Claws"
 
-[Whale Fall](https://nesbitt.io/2026/02/21/whale-fall.html) — **nesbitt.io** · 1 天前 · 21/30
+[Andrej Karpathy talks about "Claws"](https://simonwillison.net/2026/Feb/21/claws/#atom-everything) — **simonwillison.net** · 1 天前 · 20/30
 
-> Whale Fall
+> Andrej Karpathy talks about "Claws"
 
-`open source` `project lifecycle` `community`
+`Andrej Karpathy` `local AI` `hardware`
 
 ---
 
 ### 3. Teleoperation is Always the Butt of the Joke
 
-[Teleoperation is Always the Butt of the Joke](https://idiallo.com/blog/teleoperation-is-the-butt-of-the-joke?src=feed) — **idiallo.com** · 1 天前 · 20/30
+[Teleoperation is Always the Butt of the Joke](https://idiallo.com/blog/teleoperation-is-the-butt-of-the-joke?src=feed) — **idiallo.com** · 1 天前 · 19/30
 
 > Teleoperation is Always the Butt of the Joke
 
-`automation` `labor` `AI myth-busting`
+`AI automation` `human labor` `tech reality`
 
 ---
 
-### 4. Wrapping Code Comments
+### 4. Pluralistic: A perforated corporate veil (20 Feb 2026)
 
-[Wrapping Code Comments](https://matklad.github.io/2026/02/21/wrapping-code-comments.html) — **matklad.github.io** · 1 天前 · 17/30
+[Pluralistic: A perforated corporate veil (20 Feb 2026)](https://pluralistic.net/2026/02/20/karioca-konzernrecht/) — **pluralistic.net** · 1 天前 · 19/30
 
-> I was today years old when I realized that:
+> Pluralistic: A perforated corporate veil (20 Feb 2026)
 
-`code comments` `documentation` `programming practices`
+`corporate regulation` `social media` `policy`
 
 ---
 
 ### 5. The unbearable weight of cruft
 
-[The unbearable weight of cruft](https://www.joanwestenberg.com/the-unbearable-weight-of-cruft/) — **joanwestenberg.com** · 1 天前 · 17/30
+[The unbearable weight of cruft](https://www.joanwestenberg.com/the-unbearable-weight-of-cruft/) — **joanwestenberg.com** · 1 天前 · 19/30
 
 > 
 
-`technical debt` `software quality` `maintenance`
+`technical debt` `code quality` `software design`
 
 ---
 
@@ -160,102 +166,101 @@ gpt-5.3                │ ██████████░░░░░░░�
 
 ## AI / ML
 
-### 7. ggml.ai joins Hugging Face to ensure the long-term progress of Local AI
-
-[ggml.ai joins Hugging Face to ensure the long-term progress of Local AI](https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything) — **simonwillison.net** · 1 天前 · 27/30
-
-> ggml.ai joins Hugging Face to ensure the long-term progress of Local AI
-
-`llama.cpp` `local AI` `acquisition`
-
----
-
-### 8. Taalas serves Llama 3.1 8B at 17,000 tokens/second
+### 7. Taalas推出定制硬件实现Llama 3.1 8B模型，吞吐量达17000令牌/秒
 
 [Taalas serves Llama 3.1 8B at 17,000 tokens/second](https://simonwillison.net/2026/Feb/20/taalas/#atom-everything) — **simonwillison.net** · 1 天前 · 26/30
 
-> Taalas serves Llama 3.1 8B at 17,000 tokens/second
+> 加拿大硬件初创公司Taalas发布了首款产品——Llama 3.1 8B模型的定制硬件实现，运行速度达到惊人的17000令牌/秒。这款硬件产品针对小型开源模型进行了专门优化，相比通用GPU的性能有数量级的提升。
 
 `Llama 3.1` `inference optimization` `custom hardware`
 
 ---
 
-### 9. Quoting Thibault Sottiaux
+### 8. OpenAI GPT-5.3-Codex-Spark性能提升30%，吞吐量超1200令牌/秒
 
 [Quoting Thibault Sottiaux](https://simonwillison.net/2026/Feb/21/thibault-sottiaux/#atom-everything) — **simonwillison.net** · 23 小时前 · 25/30
 
-> Quoting Thibault Sottiaux
+> OpenAI官方宣布将GPT-5.3-Codex-Spark的性能提升了约30%，当前服务吞吐量超过1200令牌/秒。这一性能优化体现了OpenAI在模型推理效率方面的持续改进。
 
-`GPT-5.3` `inference speed` `token throughput`
-
----
-
-### 10. Quoting Thariq Shihipar
-
-[Quoting Thariq Shihipar](https://simonwillison.net/2026/Feb/20/thariq-shihipar/#atom-everything) — **simonwillison.net** · 1 天前 · 24/30
-
-> Quoting Thariq Shihipar
-
-`prompt caching` `latency optimization` `agentic AI`
+`GPT-5.3` `inference speed` `LLM performance`
 
 ---
 
-### 11. Andrej Karpathy talks about "Claws"
+### 9. ggml.ai加入Hugging Face，推动本地AI长期发展
 
-[Andrej Karpathy talks about "Claws"](https://simonwillison.net/2026/Feb/21/claws/#atom-everything) — **simonwillison.net** · 1 天前 · 20/30
+[ggml.ai joins Hugging Face to ensure the long-term progress of Local AI](https://simonwillison.net/2026/Feb/20/ggmlai-joins-hugging-face/#atom-everything) — **simonwillison.net** · 1 天前 · 25/30
 
-> Andrej Karpathy talks about "Claws"
+> ggml.ai项目并入Hugging Face，旨在保障本地AI的长期技术进展。Georgi Gerganov在本地模型领域的贡献至关重要，其2023年3月发布的llama.cpp项目使消费级硬件运行LLM成为可能。该并购有助于确保这一关键基础设施项目的持续维护和发展。
 
-`OpenClaw` `local AI` `hardware`
+`ggml` `Hugging Face` `local models` `ecosystem`
 
 ---
 
 ## Engineering
 
-### 12. Customizing the ways the dialog manager dismisses itself: Detecting the ESC key, first (failed) attempt
+### 10. Whale Fall
 
-[Customizing the ways the dialog manager dismisses itself: Detecting the ESC key, first (failed) attempt](https://devblogs.microsoft.com/oldnewthing/20260220-00/?p=112074) — **devblogs.microsoft.com/oldnewthing** · 1 天前 · 16/30
+[Whale Fall](https://nesbitt.io/2026/02/21/whale-fall.html) — **nesbitt.io** · 1 天前 · 23/30
 
-> Sniffing the asynchronous keyboard state.
-The post Customizing the ways the dialog manager dismisses itself: Detecting the ESC key, first (failed) attempt appeared first on The Old New Thing.
+> Whale Fall
 
-`dialog manager` `keyboard handling` `Windows`
+`open source` `maintenance` `project sustainability`
 
 ---
 
-### 13. Computing big, certified Fibonacci numbers
+### 11. Computing big, certified Fibonacci numbers
 
-[Computing big, certified Fibonacci numbers](https://www.johndcook.com/blog/2026/02/21/big-certified-fibonacci/) — **johndcook.com** · 6 小时前 · 16/30
+[Computing big, certified Fibonacci numbers](https://www.johndcook.com/blog/2026/02/21/big-certified-fibonacci/) — **johndcook.com** · 6 小时前 · 18/30
 
 > I’ve written before about computing big Fibonacci numbers, and about creating a certificate to verify a Fibonacci number has been calculated correctly. This post will revisit both, giving a different 
 
-`Fibonacci` `algorithms` `mathematical computing`
+`Fibonacci` `algorithm` `cryptography` `certificate`
 
 ---
 
-## Security
+### 12. Wrapping Code Comments
 
-### 14. ‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA
+[Wrapping Code Comments](https://matklad.github.io/2026/02/21/wrapping-code-comments.html) — **matklad.github.io** · 1 天前 · 16/30
 
-[‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA](https://krebsonsecurity.com/2026/02/starkiller-phishing-service-proxies-real-login-pages-mfa/) — **krebsonsecurity.com** · 1 天前 · 27/30
+> I was today years old when I realized that:
 
-> ‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA
-
-`phishing` `MFA bypass` `cybersecurity threat`
+`code comments` `documentation` `best practices`
 
 ---
 
 ## Tools / OSS
 
-### 15. OpenBenches at FOSDEM
+### 13. 提示词缓存如何使Claude Code等长期运行的AI代理产品成为可能
 
-[OpenBenches at FOSDEM](https://shkspr.mobi/blog/2026/02/openbenches-at-fosdem/) — **shkspr.mobi** · 12 小时前 · 17/30
+[Quoting Thariq Shihipar](https://simonwillison.net/2026/Feb/20/thariq-shihipar/#atom-everything) — **simonwillison.net** · 1 天前 · 27/30
 
-> OpenBenches at FOSDEM
+> 长期运行的代理产品（如Claude Code）的可行性依赖于提示词缓存技术。提示词缓存通过复用先前请求的计算结果，显著降低延迟和成本。Claude Code团队围绕提示词缓存构建了整套系统架构，通过提高缓存命中率来降低成本并为订阅用户提供更加宽松的速率限制。团队通过告警监控缓存表现，确保系统的高效运行。
 
-`OpenBenches` `FOSDEM` `benchmarking` `video editing`
+`prompt caching` `latency optimization` `cost reduction`
 
 ---
 
-*生成于 2026-02-22 01:03 | 扫描 89 源 → 获取 2504 篇 → 精选 15 篇*
+### 14. OpenBenches at FOSDEM
+
+[OpenBenches at FOSDEM](https://shkspr.mobi/blog/2026/02/openbenches-at-fosdem/) — **shkspr.mobi** · 12 小时前 · 16/30
+
+> At the recent FOSDEM, I did a very quick lightning talk about our OpenBenches project.  Sadly, despite the best efforts of the AV team, the video had a missing section. I took my own audio recording a
+
+`OpenBenches` `FOSDEM` `open-source` `video-editing`
+
+---
+
+## Security
+
+### 15. "Starkiller"钓鱼服务通过代理真实登录页面和多因素认证进行攻击
+
+[‘Starkiller’ Phishing Service Proxies Real Login Pages, MFA](https://krebsonsecurity.com/2026/02/starkiller-phishing-service-proxies-real-login-pages-mfa/) — **krebsonsecurity.com** · 1 天前 · 27/30
+
+> 一种新型钓鱼即服务（PhaaS）平台Starkiller克服了传统钓鱼网站易被识别和快速下架的问题。该服务采用伪装链接加载目标品牌的真实网站，然后作为受害者与合法网站之间的中继，转发用户名、密码和多因素认证信息。这种代理中间人的方式使得钓鱼攻击更难被检测，威胁程度大幅提升。
+
+`phishing` `MFA bypass` `cyber threats`
+
+---
+
+*生成于 2026-02-22 01:08 | 扫描 89 源 → 获取 2504 篇 → 精选 15 篇*
 *基于 [Hacker News Popularity Contest 2025](https://refactoringenglish.com/tools/hn-popularity/) RSS 源列表，由 [Andrej Karpathy](https://x.com/karpathy) 推荐*
