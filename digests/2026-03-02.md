@@ -1,8 +1,8 @@
-# AI Daily Digest — 2026-03-01
+# AI Daily Digest — 2026-03-02
 
 > Curated from 92 top tech blogs recommended by Karpathy. AI-selected Top 15.
 
-<div class="stats-bar" data-sources="88/92" data-articles="2499" data-filtered="64" data-hours="72" data-selected="15"></div>
+<div class="stats-bar" data-sources="88/92" data-articles="2500" data-filtered="30" data-hours="48" data-selected="15"></div>
 
 <div class="stats-categories" data-categories='{"Other":15}'></div>
 
@@ -12,7 +12,7 @@
 
 #1 **Quoting claude.com/import-memory**
 
-[Quoting claude.com/import-memory](https://simonwillison.net/2026/Mar/1/claude-import-memory/#atom-everything) — simonwillison.net · 6 小时前 · Other
+[Quoting claude.com/import-memory](https://simonwillison.net/2026/Mar/1/claude-import-memory/#atom-everything) — simonwillison.net · 14 小时前 · Other
 
 > Quoting claude.com/import-memory
 
@@ -22,7 +22,7 @@
 
 #2 **Interactive explanations**
 
-[Interactive explanations](https://simonwillison.net/guides/agentic-engineering-patterns/interactive-explanations/#atom-everything) — simonwillison.net · 18 小时前 · Other
+[Interactive explanations](https://simonwillison.net/guides/agentic-engineering-patterns/interactive-explanations/#atom-everything) — simonwillison.net · 1 天前 · Other
 
 > Interactive explanations
 
@@ -30,11 +30,11 @@
 
 <div class="pick-card">
 
-#3 **Please, please, please stop using passkeys for encrypting user data**
+#3 **Expert Beginners and Lone Wolves will dominate this early LLM era**
 
-[Please, please, please stop using passkeys for encrypting user data](https://simonwillison.net/2026/Feb/27/passkeys/#atom-everything) — simonwillison.net · 1 天前 · Other
+[Expert Beginners and Lone Wolves will dominate this early LLM era](https://www.jeffgeerling.com/blog/2026/expert-beginners-and-lone-wolves-dominate-llm-era/) — jeffgeerling.com · 3 小时前 · Other
 
-> Please, please, please stop using passkeys for encrypting user data
+> Expert Beginners and Lone Wolves will dominate this early LLM era
 
 </div>
 
@@ -57,7 +57,7 @@ pie showData
 
 ### 1. Quoting claude.com/import-memory
 
-[Quoting claude.com/import-memory](https://simonwillison.net/2026/Mar/1/claude-import-memory/#atom-everything) — **simonwillison.net** · 6 小时前 · 15/30
+[Quoting claude.com/import-memory](https://simonwillison.net/2026/Mar/1/claude-import-memory/#atom-everything) — **simonwillison.net** · 14 小时前 · 15/30
 
 > Quoting claude.com/import-memory
 
@@ -65,77 +65,21 @@ pie showData
 
 ### 2. Interactive explanations
 
-[Interactive explanations](https://simonwillison.net/guides/agentic-engineering-patterns/interactive-explanations/#atom-everything) — **simonwillison.net** · 18 小时前 · 15/30
+[Interactive explanations](https://simonwillison.net/guides/agentic-engineering-patterns/interactive-explanations/#atom-everything) — **simonwillison.net** · 1 天前 · 15/30
 
 > Interactive explanations
 
 ---
 
-### 3. Please, please, please stop using passkeys for encrypting user data
+### 3. Expert Beginners and Lone Wolves will dominate this early LLM era
 
-[Please, please, please stop using passkeys for encrypting user data](https://simonwillison.net/2026/Feb/27/passkeys/#atom-everything) — **simonwillison.net** · 1 天前 · 15/30
+[Expert Beginners and Lone Wolves will dominate this early LLM era](https://www.jeffgeerling.com/blog/2026/expert-beginners-and-lone-wolves-dominate-llm-era/) — **jeffgeerling.com** · 3 小时前 · 15/30
 
-> Please, please, please stop using passkeys for encrypting user data
-
----
-
-### 4. An AI agent coding skeptic tries AI agent coding, in excessive detail
-
-[An AI agent coding skeptic tries AI agent coding, in excessive detail](https://simonwillison.net/2026/Feb/27/ai-agent-coding-in-excessive-detail/#atom-everything) — **simonwillison.net** · 1 天前 · 15/30
-
-> An AI agent coding skeptic tries AI agent coding, in excessive detail
+> Expert Beginners and Lone Wolves will dominate this early LLM era
 
 ---
 
-### 5. Free Claude Max for (large project) open source maintainers
-
-[Free Claude Max for (large project) open source maintainers](https://simonwillison.net/2026/Feb/27/claude-max-oss-six-months/#atom-everything) — **simonwillison.net** · 1 天前 · 15/30
-
-> Free Claude Max for (large project) open source maintainers
-
----
-
-### 6. Unicode Explorer using binary search over fetch() HTTP range requests
-
-[Unicode Explorer using binary search over fetch() HTTP range requests](https://simonwillison.net/2026/Feb/27/unicode-explorer/#atom-everything) — **simonwillison.net** · 1 天前 · 15/30
-
-> Unicode Explorer using binary search over fetch() HTTP range requests
-
----
-
-### 7. Hoard things you know how to do
-
-[Hoard things you know how to do](https://simonwillison.net/guides/agentic-engineering-patterns/hoard-things-you-know-how-to-do/#atom-everything) — **simonwillison.net** · 2 天前 · 15/30
-
-> Hoard things you know how to do
-
----
-
-### 8. Quoting Andrej Karpathy
-
-[Quoting Andrej Karpathy](https://simonwillison.net/2026/Feb/26/andrej-karpathy/#atom-everything) — **simonwillison.net** · 2 天前 · 15/30
-
-> Quoting Andrej Karpathy
-
----
-
-### 9. Upgrading my Open Source Pi Surveillance Server with Frigate
-
-[Upgrading my Open Source Pi Surveillance Server with Frigate](https://www.jeffgeerling.com/blog/2026/upgrading-my-open-source-pi-surveillance-server-frigate/) — **jeffgeerling.com** · 2 天前 · 15/30
-
-> Upgrading my Open Source Pi Surveillance Server with Frigate
-
----
-
-### 10. How to Securely Erase an old Hard Drive on macOS Tahoe
-
-[How to Securely Erase an old Hard Drive on macOS Tahoe](https://www.jeffgeerling.com/blog/2026/securely-erase-hard-drive-macos-tahoe/) — **jeffgeerling.com** · 2 天前 · 15/30
-
-> How to Securely Erase an old Hard Drive on macOS Tahoe
-
----
-
-### 11. Who is the Kimwolf Botmaster “Dort”?
+### 4. Who is the Kimwolf Botmaster “Dort”?
 
 [Who is the Kimwolf Botmaster “Dort”?](https://krebsonsecurity.com/2026/02/who-is-the-kimwolf-botmaster-dort/) — **krebsonsecurity.com** · 1 天前 · 15/30
 
@@ -143,23 +87,23 @@ pie showData
 
 ---
 
-### 12. Sentry
+### 5. Sentry
 
-[Sentry](https://sentry.io/resources/ios-workshop-jan-2026/?utm_source=daringfireball&amp;utm_medium=paid-display&amp;utm_campaign=general-fy27q1-evergreen&amp;utm_content=static-ad-mobilerss-trysentry) — **daringfireball.net** · 1 小时前 · 15/30
+[Sentry](https://sentry.io/resources/ios-workshop-jan-2026/?utm_source=daringfireball&amp;utm_medium=paid-display&amp;utm_campaign=general-fy27q1-evergreen&amp;utm_content=static-ad-mobilerss-trysentry) — **daringfireball.net** · 10 小时前 · 15/30
 
 > Sentry
 
 ---
 
-### 13. The Talk Show: ‘Bad Dates’
+### 6. The Talk Show: ‘Bad Dates’
 
-[The Talk Show: ‘Bad Dates’](https://daringfireball.net/thetalkshow/2026/02/28/ep-442) — **daringfireball.net** · 1 小时前 · 15/30
+[The Talk Show: ‘Bad Dates’](https://daringfireball.net/thetalkshow/2026/02/28/ep-442) — **daringfireball.net** · 10 小时前 · 15/30
 
 > The Talk Show: ‘Bad Dates’
 
 ---
 
-### 14. Trump’s Enormous Gamble on Regime Change in Iran
+### 7. Trump’s Enormous Gamble on Regime Change in Iran
 
 [Trump’s Enormous Gamble on Regime Change in Iran](https://www.theatlantic.com/ideas/2026/02/trumps-iran-regime-change-attack-gamble/686190/?gift=aQyUJR7AIw1mJWdQ6Ed6yOWB4bfod1kQqCyz2RXbHaY) — **daringfireball.net** · 1 天前 · 15/30
 
@@ -167,13 +111,69 @@ pie showData
 
 ---
 
-### 15. West Virginia’s Anti-Apple CSAM Lawsuit Would Help Child Predators Walk Free
+### 8. Redis patterns for coding
 
-[West Virginia’s Anti-Apple CSAM Lawsuit Would Help Child Predators Walk Free](https://www.techdirt.com/2026/02/25/west-virginias-anti-apple-csam-lawsuit-would-help-child-predators-walk-free/) — **daringfireball.net** · 1 天前 · 15/30
+[Redis patterns for coding](http://antirez.com/news/161) — **antirez.com** · 15 小时前 · 15/30
 
-> West Virginia’s Anti-Apple CSAM Lawsuit Would Help Child Predators Walk Free
+> Redis patterns for coding
 
 ---
 
-*生成于 2026-03-01 17:23 | 扫描 88 源 → 获取 2499 篇 → 精选 15 篇*
+### 9. &ldquo;How old are you?&rdquo; Asked the OS
+
+[&ldquo;How old are you?&rdquo; Asked the OS](https://idiallo.com/byte-size/how-old-are-you-asked-the-os?src=feed) — **idiallo.com** · 1 天前 · 15/30
+
+> &ldquo;How old are you?&rdquo; Asked the OS
+
+---
+
+### 10. That's it, I'm cancelling my ChatGPT
+
+[That's it, I'm cancelling my ChatGPT](https://idiallo.com/byte-size/im-cancelling-my-chatgpt-openai-account?src=feed) — **idiallo.com** · 1 天前 · 15/30
+
+> That's it, I'm cancelling my ChatGPT
+
+---
+
+### 11. Pluralistic: California can stop Larry Ellison from buying Warners (28 Feb 2026)
+
+[Pluralistic: California can stop Larry Ellison from buying Warners (28 Feb 2026)](https://pluralistic.net/2026/02/28/golden-mean/) — **pluralistic.net** · 1 天前 · 15/30
+
+> Pluralistic: California can stop Larry Ellison from buying Warners (28 Feb 2026)
+
+---
+
+### 12. Book Review: Under Fire - Black Britain in Wartime by Stephen Bourne ★★★★☆
+
+[Book Review: Under Fire - Black Britain in Wartime by Stephen Bourne ★★★★☆](https://shkspr.mobi/blog/2026/03/book-review-under-fire-black-britain-in-wartime-by-stephen-bourne/) — **shkspr.mobi** · 13 小时前 · 15/30
+
+> Book Review: Under Fire - Black Britain in Wartime by Stephen Bourne ★★★★☆
+
+---
+
+### 13. 30 months to 3MWh - some more home battery stats
+
+[30 months to 3MWh - some more home battery stats](https://shkspr.mobi/blog/2026/02/30-months-to-3mwh-some-more-home-battery-stats/) — **shkspr.mobi** · 1 天前 · 15/30
+
+> 30 months to 3MWh - some more home battery stats
+
+---
+
+### 14. Approximation game
+
+[Approximation game](https://lcamtuf.substack.com/p/approximation-game) — **lcamtuf.substack.com** · 1 天前 · 15/30
+
+> Approximation game
+
+---
+
+### 15. Killing my inner Necron
+
+[Killing my inner Necron](https://xeiaso.net/blog/2026/killing-my-inner-necron/) — **xeiaso.net** · 1 天前 · 15/30
+
+> Killing my inner Necron
+
+---
+
+*生成于 2026-03-02 01:53 | 扫描 88 源 → 获取 2500 篇 → 精选 15 篇*
 *基于 [Hacker News Popularity Contest 2025](https://refactoringenglish.com/tools/hn-popularity/) RSS 源列表，由 [Andrej Karpathy](https://x.com/karpathy) 推荐*
